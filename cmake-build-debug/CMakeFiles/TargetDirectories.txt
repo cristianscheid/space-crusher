@@ -1,0 +1,3 @@
+/home/cristian/Documents/sdl/space-crusher/cmake-build-debug/CMakeFiles/space_crusher.dir
+/home/cristian/Documents/sdl/space-crusher/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/cristian/Documents/sdl/space-crusher/cmake-build-debug/CMakeFiles/rebuild_cache.dir
