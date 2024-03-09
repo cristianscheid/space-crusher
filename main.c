@@ -273,18 +273,20 @@ void process_input(void) {
     }
 }
 
-
 ///////////////////////////////////////////////////////////////////////////////
 // Update function with a fixed time step
 ///////////////////////////////////////////////////////////////////////////////
 void update(void) {
     // Get delta_time factor converted to seconds to be used to update objects
     float delta_time = (SDL_GetTicks() - last_frame_time) / 1000.0;
-
     // Store the milliseconds of the current frame to be used in the next one
     last_frame_time = SDL_GetTicks();
 
+    // Move background as a function of delta time
     for (int i = 0; i < sizeof(backgrounds) / sizeof(backgrounds[0]); i++) {
+        // The 'backgrounds' array holds two identical images at positions 0 and 1
+        // 'j' toggles between 0 and 1, allowing access to the opposite index of the loop
+        // This enables dynamic background object calling and infinite image scrolling
         bool j = !i;
         if (backgrounds[i].is_visible && backgrounds[i].y < WINDOW_HEIGHT) {
             backgrounds[i].y += backgrounds[i].vel_y * delta_time;
@@ -380,7 +382,9 @@ void update(void) {
         }
     }
 
+    ///////////////////////////////////////////////////////////////////////////////
     // Collision detection
+    ///////////////////////////////////////////////////////////////////////////////
     // Laser X Enemy
     for (int i = 0; i < sizeof(lasers) / sizeof(lasers[0]); i++) {
         for (int j = 0; j < sizeof(enemies) / sizeof(enemies[0]); j++) {
