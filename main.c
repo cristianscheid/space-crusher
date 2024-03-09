@@ -22,7 +22,7 @@ SDL_Texture *background_tex = NULL;
 SDL_Texture *player_tex = NULL;
 SDL_Texture *laser_tex = NULL;
 SDL_Texture *enemies_texs[14];
-SDL_Texture *asteroids_texs [2];
+SDL_Texture *asteroids_texs[2];
 SDL_Texture *explosion_tex = NULL;
 
 bool move_up = false;
@@ -36,6 +36,14 @@ int laser_count = 0;
 ///////////////////////////////////////////////////////////////////////////////
 // Declare game objects
 ///////////////////////////////////////////////////////////////////////////////
+struct background {
+    SDL_Rect rect;
+    float x;
+    float y;
+    float vel_y;
+    bool is_visible;
+} backgrounds[2];
+
 struct game_object {
     SDL_Rect rect;
     SDL_Texture *tex;
@@ -44,7 +52,16 @@ struct game_object {
     float vel_x;
     float vel_y;
     bool is_visible;
-} background, player, lasers[14], enemies[8], asteroids[8], explosions[8];
+} player, lasers[14], enemies[8], asteroids[8];
+
+struct explosion {
+    SDL_Rect rect;
+    SDL_Texture *tex;
+    float x;
+    float y;
+    float count;
+    bool is_visible;
+} explosions[8];
 
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -189,12 +206,17 @@ void setup(void) {
     explosion_tex = SDL_CreateTextureFromSurface(renderer, explosion_sfc);
 
     // Get background sprite dimensions
-    background.tex = background_tex;
-    SDL_QueryTexture(background.tex, NULL, NULL, &background.rect.w, &background.rect.h);
+    int background_img_width, background_img_height;
+    SDL_QueryTexture(background_tex, NULL, NULL, &background_img_width, &background_img_height);
     // Initialize background object
-    background.x = 0;
-    background.y = WINDOW_HEIGHT - background.rect.h;
-    background.vel_y = 100;
+    backgrounds[0].x = backgrounds[1].x = 0;
+    backgrounds[0].y = WINDOW_HEIGHT - background_img_height;
+    backgrounds[1].y = - background_img_height;
+    backgrounds[0].vel_y = backgrounds[1].vel_y = 700;
+    backgrounds[0].is_visible = true;
+    backgrounds[1].is_visible = false;
+    backgrounds[0].rect.w = backgrounds[1].rect.w = background_img_width;
+    backgrounds[0].rect.h = backgrounds[1].rect.h = background_img_height;
 
     // Get player sprite dimensions
     player.tex = player_tex;
@@ -221,7 +243,7 @@ void setup(void) {
     int j;
     for (int i = 0; i < sizeof(enemies) / sizeof(enemies[0]); i++) {
         // Generate random index (j) to choose random sprite
-        j = rand() % ((sizeof(enemies_texs) / sizeof(enemies_texs[0])) - 1);
+        j = rand() % (sizeof(enemies_texs) / sizeof(enemies_texs[0]));
         enemies[i].tex = enemies_texs[j];
         // Get sprite dimensions
         SDL_QueryTexture(enemies[i].tex, NULL, NULL, &enemies[i].rect.w, &enemies[i].rect.h);
@@ -235,7 +257,7 @@ void setup(void) {
     // Define asteroids sprites
     for (int i = 0; i < sizeof(asteroids) / sizeof(asteroids[0]); i++) {
         // Generate random index (j) to choose random sprite
-        j = rand() % ((sizeof(asteroids_texs) / sizeof(asteroids_texs[0])) - 1);
+        j = rand() % ((sizeof(asteroids_texs) / sizeof(asteroids_texs[0])));
         asteroids[i].tex = asteroids_texs[j];
         // Get sprite dimensions
         SDL_QueryTexture(asteroids[i].tex, NULL, NULL, &asteroids[i].rect.w, &asteroids[i].rect.h);
@@ -268,9 +290,21 @@ void update(void) {
     // Store the milliseconds of the current frame to be used in the next one
     last_frame_time = SDL_GetTicks();
 
-    // Move backgrouund as a function of delta time
-    background.y += background.vel_y * delta_time;
-    background.rect.y = background.y;
+    for (int i = 0; i < sizeof(backgrounds) / sizeof(backgrounds[0]); i++) {
+        bool j = !i;
+        if (backgrounds[i].is_visible && backgrounds[i].y < WINDOW_HEIGHT){
+            backgrounds[i].y += backgrounds[i].vel_y * delta_time;
+            // Set SDL_Rect coordinates
+            backgrounds[i].rect.x = backgrounds[i].x;
+            backgrounds[i].rect.y = backgrounds[i].y;
+            if (backgrounds[i].y > 0){
+                backgrounds[j].is_visible = true;
+            }
+        } else {
+            backgrounds[i].is_visible = false;
+            backgrounds[i].y = - backgrounds[i].rect.h;
+        }
+    }
 
     // Move player as a function of delta time
     if (move_up && !move_down && player.y >= 0) {
@@ -342,14 +376,12 @@ void update(void) {
     // Set duration explosions sprites remain visible before disappearing
     for (int i = 0; i < sizeof(explosions) / sizeof(explosions[0]); i++) {
         if (explosions[i].is_visible) {
-            // Use explosion struct vel_x variable to track the duration
-            // Explosions don't move, thus this variable has no other use
-            if (explosions[i].vel_x < 10) {
+            if (explosions[i].count < 10) {
                 // Duration increases as a function of delta time
-                explosions[i].vel_x += 100 * delta_time;
+                explosions[i].count += 100 * delta_time;
             } else {
                 explosions[i].is_visible = false;
-                explosions[i].vel_x = 0;
+                explosions[i].count = 0;
             }
         }
     }
@@ -374,6 +406,25 @@ void update(void) {
         }
     }
 
+    // Laser X Asteroid
+    for (int i = 0; i < sizeof(lasers) / sizeof(lasers[0]); i++) {
+        for (int j = 0; j < sizeof(asteroids) / sizeof(asteroids[0]); j++) {
+            if (lasers[i].is_visible && asteroids[j].is_visible
+                && lasers[i].rect.x > asteroids[j].rect.x - lasers[i].rect.w
+                && lasers[i].rect.x < asteroids[j].rect.x + asteroids[j].rect.w
+                && lasers[i].rect.y < asteroids[j].rect.y + asteroids[j].rect.h) {
+                // Reset laser
+                lasers[i].is_visible = false;
+                // Reset asteroid
+                asteroids[j].y = -150;
+                // Set explosion
+                explosions[j].is_visible = true;
+                explosions[j].rect.x = asteroids[j].rect.x + (asteroids[j].rect.w / 2) - (explosions[j].rect.w / 2);
+                explosions[j].rect.y = asteroids[j].rect.y + (asteroids[j].rect.h / 2) - (explosions[j].rect.h / 2);
+            }
+        }
+    }
+
     // Player X Enemy
     for (int i = 0; i < sizeof(enemies) / sizeof(enemies[0]); i++) {
         if (enemies[i].is_visible
@@ -382,6 +433,17 @@ void update(void) {
             && player.rect.y < enemies[i].rect.y + enemies[i].rect.h
             && player.rect.y > enemies[i].rect.y - player.rect.h) {
             enemies[i].y = -150;
+        }
+    }
+
+    // Player X Asteroid
+    for (int i = 0; i < sizeof(asteroids) / sizeof(asteroids[0]); i++) {
+        if (asteroids[i].is_visible
+            && player.rect.x > asteroids[i].rect.x - player.rect.w
+            && player.rect.x < asteroids[i].rect.x + asteroids[i].rect.w
+            && player.rect.y < asteroids[i].rect.y + asteroids[i].rect.h
+            && player.rect.y > asteroids[i].rect.y - player.rect.h) {
+            asteroids[i].y = -150;
         }
     }
 
@@ -398,7 +460,11 @@ void render(void) {
     SDL_RenderClear(renderer);
 
     // Draw background
-    SDL_RenderCopy(renderer, background.tex, NULL, &background.rect);
+    for (int i = 0; i < sizeof(backgrounds) / sizeof(backgrounds[0]); i++) {
+        if (backgrounds[i].is_visible) {
+            SDL_RenderCopy(renderer, background_tex, NULL, &backgrounds[i].rect);
+        }
+    }
 
     // Draw player
     SDL_RenderCopy(renderer, player.tex, NULL, &player.rect);

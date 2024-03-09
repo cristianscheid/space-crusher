@@ -10,6 +10,7 @@ Laser:
 https://opengameart.org/content/assets-free-laser-bullets-pack-2020
 Explosion:
 https://opengameart.org/content/blasteroids-art-pack-cc-by-30
+https://opengameart.org/content/explosion-set-1-m484-games
 Asteroids:
 https://opengameart.org/content/asteroids-set-01
 https://opengameart.org/content/asteroids-set-02
