@@ -196,7 +196,7 @@ void initial_setup(void) {
         enemy_lasers[i].tex = enemy_laser_tex;
         enemy_lasers[i].rect.w = enemy_laser_width;
         enemy_lasers[i].rect.h = enemy_laser_height;
-        enemy_lasers[i].vel_y = 800;
+        enemy_lasers[i].vel_y = 100;
         enemy_lasers[i].is_visible = false;
     }
 
@@ -415,7 +415,7 @@ void update(void) {
     ///////////////////////////////////////////////////////////////////////////////
     // Collision detection
     ///////////////////////////////////////////////////////////////////////////////
-    // Laser X Enemy
+    // PLayer Laser X Enemy
     for (int i = 0; i < sizeof(player_lasers) / sizeof(player_lasers[0]); i++) {
         for (int j = 0; j < sizeof(enemies) / sizeof(enemies[0]); j++) {
             if (player_lasers[i].is_visible && enemies[j].is_visible
@@ -434,7 +434,21 @@ void update(void) {
         }
     }
 
-    // Laser X Asteroid
+    // Enemy Laser X Player
+    for (int i = 0; i < sizeof(enemy_lasers) / sizeof(enemy_lasers[0]); i++) {
+        if (enemy_lasers[i].is_visible
+            && enemy_lasers[i].rect.x > player.rect.x - enemy_lasers[i].rect.w
+            && enemy_lasers[i].rect.x < player.rect.x + player.rect.w
+            && enemy_lasers[i].rect.y + enemy_lasers[i].rect.h > player.rect.y
+            && enemy_lasers[i].rect.y < player.rect.y + player.rect.h) {
+            // Reset laser
+            enemy_lasers[i].is_visible = false;
+            // Reset enemy
+            player.x = 0;
+        }
+    }
+
+    // Player Laser X Asteroid
     for (int i = 0; i < sizeof(player_lasers) / sizeof(player_lasers[0]); i++) {
         for (int j = 0; j < sizeof(asteroids) / sizeof(asteroids[0]); j++) {
             if (player_lasers[i].is_visible && asteroids[j].is_visible
