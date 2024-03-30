@@ -1,11 +1,4 @@
-/opt/clion-2023.3.4/bin/cmake/linux/x64/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=/opt/clion-2023.3.4/bin/ninja/linux/x64/ninja -G Ninja -S /home/cristian/Documents/sdl/space-crusher -B /home/cristian/Documents/sdl/space-crusher/cmake-build-debug
-CMake Error at CMakeLists.txt:7 (find_package):
-  Found package configuration file:
-
-    /usr/lib/x86_64-linux-gnu/cmake/SDL2/sdl2-config.cmake
-
-  but it set SDL2_FOUND to FALSE so package "SDL2" is considered to be NOT
-  FOUND.
-
-
--- Configuring incomplete, errors occurred!
+/opt/clion-2023.3.4/bin/cmake/linux/x64/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=/opt/clion-2023.3.4/bin/ninja/linux/x64/ninja -G Ninja -S /home/cristian/Documents/sdl/untitled -B /home/cristian/Documents/sdl/untitled/cmake-build-debug
+-- Configuring done (0.0s)
+-- Generating done (0.0s)
+-- Build files have been written to: /home/cristian/Documents/sdl/untitled/cmake-build-debug

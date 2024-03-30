@@ -27,7 +27,7 @@
 					[
 						0
 					],
-					"name" : "space_crusher",
+					"name" : "untitled",
 					"targetIndexes" : 
 					[
 						0
@@ -38,9 +38,9 @@
 			[
 				{
 					"directoryIndex" : 0,
-					"id" : "space_crusher::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-space_crusher-Debug-a0d8fc332ed617628fe5.json",
-					"name" : "space_crusher",
+					"id" : "untitled::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-untitled-Debug-276f24600f3c989395b4.json",
+					"name" : "untitled",
 					"projectIndex" : 0
 				}
 			]
@@ -49,8 +49,8 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "/home/cristian/Documents/sdl/space-crusher/cmake-build-debug",
-		"source" : "/home/cristian/Documents/sdl/space-crusher"
+		"build" : "/home/cristian/Documents/sdl/untitled/cmake-build-debug",
+		"source" : "/home/cristian/Documents/sdl/untitled"
 	},
 	"version" : 
 	{

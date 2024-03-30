@@ -6,7 +6,7 @@
 # It is included in the main 'build.ninja'.
 
 # =============================================================================
-# Project: space_crusher
+# Project: untitled
 # Configurations: Debug
 # =============================================================================
 # =============================================================================
@@ -14,7 +14,7 @@
 #############################################
 # Rule for compiling C files.
 
-rule C_COMPILER__space_crusher_unscanned_Debug
+rule C_COMPILER__untitled_unscanned_Debug
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/usr/bin/cc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -24,7 +24,7 @@ rule C_COMPILER__space_crusher_unscanned_Debug
 #############################################
 # Rule for linking C executable.
 
-rule C_EXECUTABLE_LINKER__space_crusher_Debug
+rule C_EXECUTABLE_LINKER__untitled_Debug
   command = $PRE_LINK && /usr/bin/cc $FLAGS $LINK_FLAGS $in -o $TARGET_FILE $LINK_PATH $LINK_LIBRARIES && $POST_BUILD
   description = Linking C executable $TARGET_FILE
   restat = $RESTAT
@@ -42,7 +42,7 @@ rule CUSTOM_COMMAND
 # Rule for re-running cmake.
 
 rule RERUN_CMAKE
-  command = /opt/clion-2023.3.4/bin/cmake/linux/x64/bin/cmake --regenerate-during-build -S/home/cristian/Documents/sdl/space-crusher -B/home/cristian/Documents/sdl/space-crusher/cmake-build-debug
+  command = /opt/clion-2023.3.4/bin/cmake/linux/x64/bin/cmake --regenerate-during-build -S/home/cristian/Documents/sdl/untitled -B/home/cristian/Documents/sdl/untitled/cmake-build-debug
   description = Re-running CMake...
   generator = 1
 

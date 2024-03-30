@@ -11,7 +11,7 @@
 # =============================================================================
 
 # =============================================================================
-# Project: space_crusher
+# Project: untitled
 # Configurations: Debug
 # =============================================================================
 
@@ -39,46 +39,88 @@ include CMakeFiles/rules.ninja
 #############################################
 # Logical path to working directory; prefix for absolute paths.
 
-cmake_ninja_workdir = /home/cristian/Documents/sdl/space-crusher/cmake-build-debug/
+cmake_ninja_workdir = /home/cristian/Documents/sdl/untitled/cmake-build-debug/
 # =============================================================================
-# Object build statements for EXECUTABLE target space_crusher
+# Object build statements for EXECUTABLE target untitled
 
 
 #############################################
-# Order-only phony target for space_crusher
+# Order-only phony target for untitled
 
-build cmake_object_order_depends_target_space_crusher: phony || CMakeFiles/space_crusher.dir
+build cmake_object_order_depends_target_untitled: phony || CMakeFiles/untitled.dir
 
-build CMakeFiles/space_crusher.dir/main.c.o: C_COMPILER__space_crusher_unscanned_Debug /home/cristian/Documents/sdl/space-crusher/main.c || cmake_object_order_depends_target_space_crusher
-  DEP_FILE = CMakeFiles/space_crusher.dir/main.c.o.d
+build CMakeFiles/untitled.dir/main.c.o: C_COMPILER__untitled_unscanned_Debug /home/cristian/Documents/sdl/untitled/main.c || cmake_object_order_depends_target_untitled
+  DEP_FILE = CMakeFiles/untitled.dir/main.c.o.d
   FLAGS = -g -std=gnu11 -fdiagnostics-color=always
-  INCLUDES = -isystem /usr/include/SDL2
-  OBJECT_DIR = CMakeFiles/space_crusher.dir
-  OBJECT_FILE_DIR = CMakeFiles/space_crusher.dir
+  INCLUDES = -I/usr/include/SDL2
+  OBJECT_DIR = CMakeFiles/untitled.dir
+  OBJECT_FILE_DIR = CMakeFiles/untitled.dir
+
+build CMakeFiles/untitled.dir/setup.c.o: C_COMPILER__untitled_unscanned_Debug /home/cristian/Documents/sdl/untitled/setup.c || cmake_object_order_depends_target_untitled
+  DEP_FILE = CMakeFiles/untitled.dir/setup.c.o.d
+  FLAGS = -g -std=gnu11 -fdiagnostics-color=always
+  INCLUDES = -I/usr/include/SDL2
+  OBJECT_DIR = CMakeFiles/untitled.dir
+  OBJECT_FILE_DIR = CMakeFiles/untitled.dir
+
+build CMakeFiles/untitled.dir/input_handler.c.o: C_COMPILER__untitled_unscanned_Debug /home/cristian/Documents/sdl/untitled/input_handler.c || cmake_object_order_depends_target_untitled
+  DEP_FILE = CMakeFiles/untitled.dir/input_handler.c.o.d
+  FLAGS = -g -std=gnu11 -fdiagnostics-color=always
+  INCLUDES = -I/usr/include/SDL2
+  OBJECT_DIR = CMakeFiles/untitled.dir
+  OBJECT_FILE_DIR = CMakeFiles/untitled.dir
+
+build CMakeFiles/untitled.dir/update.c.o: C_COMPILER__untitled_unscanned_Debug /home/cristian/Documents/sdl/untitled/update.c || cmake_object_order_depends_target_untitled
+  DEP_FILE = CMakeFiles/untitled.dir/update.c.o.d
+  FLAGS = -g -std=gnu11 -fdiagnostics-color=always
+  INCLUDES = -I/usr/include/SDL2
+  OBJECT_DIR = CMakeFiles/untitled.dir
+  OBJECT_FILE_DIR = CMakeFiles/untitled.dir
+
+build CMakeFiles/untitled.dir/collision_detection.c.o: C_COMPILER__untitled_unscanned_Debug /home/cristian/Documents/sdl/untitled/collision_detection.c || cmake_object_order_depends_target_untitled
+  DEP_FILE = CMakeFiles/untitled.dir/collision_detection.c.o.d
+  FLAGS = -g -std=gnu11 -fdiagnostics-color=always
+  INCLUDES = -I/usr/include/SDL2
+  OBJECT_DIR = CMakeFiles/untitled.dir
+  OBJECT_FILE_DIR = CMakeFiles/untitled.dir
+
+build CMakeFiles/untitled.dir/render.c.o: C_COMPILER__untitled_unscanned_Debug /home/cristian/Documents/sdl/untitled/render.c || cmake_object_order_depends_target_untitled
+  DEP_FILE = CMakeFiles/untitled.dir/render.c.o.d
+  FLAGS = -g -std=gnu11 -fdiagnostics-color=always
+  INCLUDES = -I/usr/include/SDL2
+  OBJECT_DIR = CMakeFiles/untitled.dir
+  OBJECT_FILE_DIR = CMakeFiles/untitled.dir
+
+build CMakeFiles/untitled.dir/sandbox.c.o: C_COMPILER__untitled_unscanned_Debug /home/cristian/Documents/sdl/untitled/sandbox.c || cmake_object_order_depends_target_untitled
+  DEP_FILE = CMakeFiles/untitled.dir/sandbox.c.o.d
+  FLAGS = -g -std=gnu11 -fdiagnostics-color=always
+  INCLUDES = -I/usr/include/SDL2
+  OBJECT_DIR = CMakeFiles/untitled.dir
+  OBJECT_FILE_DIR = CMakeFiles/untitled.dir
 
 
 # =============================================================================
-# Link build statements for EXECUTABLE target space_crusher
+# Link build statements for EXECUTABLE target untitled
 
 
 #############################################
-# Link the executable space_crusher
+# Link the executable untitled
 
-build space_crusher: C_EXECUTABLE_LINKER__space_crusher_Debug CMakeFiles/space_crusher.dir/main.c.o | /usr/lib/x86_64-linux-gnu/libSDL2.so
+build untitled: C_EXECUTABLE_LINKER__untitled_Debug CMakeFiles/untitled.dir/main.c.o CMakeFiles/untitled.dir/setup.c.o CMakeFiles/untitled.dir/input_handler.c.o CMakeFiles/untitled.dir/update.c.o CMakeFiles/untitled.dir/collision_detection.c.o CMakeFiles/untitled.dir/render.c.o CMakeFiles/untitled.dir/sandbox.c.o | /usr/lib/x86_64-linux-gnu/libSDL2.so /usr/lib/x86_64-linux-gnu/libSDL2_image.so
   FLAGS = -g
-  LINK_LIBRARIES = /usr/lib/x86_64-linux-gnu/libSDL2.so
-  OBJECT_DIR = CMakeFiles/space_crusher.dir
+  LINK_LIBRARIES = /usr/lib/x86_64-linux-gnu/libSDL2.so  /usr/lib/x86_64-linux-gnu/libSDL2_image.so
+  OBJECT_DIR = CMakeFiles/untitled.dir
   POST_BUILD = :
   PRE_LINK = :
-  TARGET_FILE = space_crusher
-  TARGET_PDB = space_crusher.dbg
+  TARGET_FILE = untitled
+  TARGET_PDB = untitled.dbg
 
 
 #############################################
 # Utility command for edit_cache
 
 build CMakeFiles/edit_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /home/cristian/Documents/sdl/space-crusher/cmake-build-debug && /opt/clion-2023.3.4/bin/cmake/linux/x64/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+  COMMAND = cd /home/cristian/Documents/sdl/untitled/cmake-build-debug && /opt/clion-2023.3.4/bin/cmake/linux/x64/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
   DESC = No interactive CMake dialog available...
   restat = 1
 
@@ -89,7 +131,7 @@ build edit_cache: phony CMakeFiles/edit_cache.util
 # Utility command for rebuild_cache
 
 build CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /home/cristian/Documents/sdl/space-crusher/cmake-build-debug && /opt/clion-2023.3.4/bin/cmake/linux/x64/bin/cmake --regenerate-during-build -S/home/cristian/Documents/sdl/space-crusher -B/home/cristian/Documents/sdl/space-crusher/cmake-build-debug
+  COMMAND = cd /home/cristian/Documents/sdl/untitled/cmake-build-debug && /opt/clion-2023.3.4/bin/cmake/linux/x64/bin/cmake --regenerate-during-build -S/home/cristian/Documents/sdl/untitled -B/home/cristian/Documents/sdl/untitled/cmake-build-debug
   DESC = Running CMake to regenerate build system...
   pool = console
   restat = 1
@@ -105,9 +147,9 @@ build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 # =============================================================================
 
 #############################################
-# Folder: /home/cristian/Documents/sdl/space-crusher/cmake-build-debug
+# Folder: /home/cristian/Documents/sdl/untitled/cmake-build-debug
 
-build all: phony space_crusher
+build all: phony untitled
 
 # =============================================================================
 # Built-in targets
@@ -116,14 +158,14 @@ build all: phony space_crusher
 #############################################
 # Re-run CMake if any of its inputs changed.
 
-build build.ninja: RERUN_CMAKE | /home/cristian/Documents/sdl/space-crusher/CMakeLists.txt /opt/clion-2023.3.4/bin/cmake/linux/x64/share/cmake-3.27/Modules/CMakeCInformation.cmake /opt/clion-2023.3.4/bin/cmake/linux/x64/share/cmake-3.27/Modules/CMakeCommonLanguageInclude.cmake /opt/clion-2023.3.4/bin/cmake/linux/x64/share/cmake-3.27/Modules/CMakeFindDependencyMacro.cmake /opt/clion-2023.3.4/bin/cmake/linux/x64/share/cmake-3.27/Modules/CMakeGenericSystem.cmake /opt/clion-2023.3.4/bin/cmake/linux/x64/share/cmake-3.27/Modules/CMakeInitializeConfigs.cmake /opt/clion-2023.3.4/bin/cmake/linux/x64/share/cmake-3.27/Modules/CMakeLanguageInformation.cmake /opt/clion-2023.3.4/bin/cmake/linux/x64/share/cmake-3.27/Modules/CMakeSystemSpecificInformation.cmake /opt/clion-2023.3.4/bin/cmake/linux/x64/share/cmake-3.27/Modules/CMakeSystemSpecificInitialize.cmake /opt/clion-2023.3.4/bin/cmake/linux/x64/share/cmake-3.27/Modules/Compiler/CMakeCommonCompilerMacros.cmake /opt/clion-2023.3.4/bin/cmake/linux/x64/share/cmake-3.27/Modules/Compiler/GNU-C.cmake /opt/clion-2023.3.4/bin/cmake/linux/x64/share/cmake-3.27/Modules/Compiler/GNU.cmake /opt/clion-2023.3.4/bin/cmake/linux/x64/share/cmake-3.27/Modules/FeatureSummary.cmake /opt/clion-2023.3.4/bin/cmake/linux/x64/share/cmake-3.27/Modules/Platform/Linux-GNU-C.cmake /opt/clion-2023.3.4/bin/cmake/linux/x64/share/cmake-3.27/Modules/Platform/Linux-GNU.cmake /opt/clion-2023.3.4/bin/cmake/linux/x64/share/cmake-3.27/Modules/Platform/Linux-Initialize.cmake /opt/clion-2023.3.4/bin/cmake/linux/x64/share/cmake-3.27/Modules/Platform/Linux.cmake /opt/clion-2023.3.4/bin/cmake/linux/x64/share/cmake-3.27/Modules/Platform/UnixPaths.cmake /usr/lib/x86_64-linux-gnu/cmake/SDL2/sdl2-config-version.cmake /usr/lib/x86_64-linux-gnu/cmake/SDL2/sdl2-config.cmake /usr/lib/x86_64-linux-gnu/cmake/SDL2_image/sdl2_image-config-version.cmake /usr/lib/x86_64-linux-gnu/cmake/SDL2_image/sdl2_image-config.cmake CMakeCache.txt CMakeFiles/3.27.8/CMakeCCompiler.cmake CMakeFiles/3.27.8/CMakeSystem.cmake
+build build.ninja: RERUN_CMAKE | /home/cristian/Documents/sdl/untitled/CMakeLists.txt /opt/clion-2023.3.4/bin/cmake/linux/x64/share/cmake-3.27/Modules/CMakeCInformation.cmake /opt/clion-2023.3.4/bin/cmake/linux/x64/share/cmake-3.27/Modules/CMakeCommonLanguageInclude.cmake /opt/clion-2023.3.4/bin/cmake/linux/x64/share/cmake-3.27/Modules/CMakeGenericSystem.cmake /opt/clion-2023.3.4/bin/cmake/linux/x64/share/cmake-3.27/Modules/CMakeInitializeConfigs.cmake /opt/clion-2023.3.4/bin/cmake/linux/x64/share/cmake-3.27/Modules/CMakeLanguageInformation.cmake /opt/clion-2023.3.4/bin/cmake/linux/x64/share/cmake-3.27/Modules/CMakeSystemSpecificInformation.cmake /opt/clion-2023.3.4/bin/cmake/linux/x64/share/cmake-3.27/Modules/CMakeSystemSpecificInitialize.cmake /opt/clion-2023.3.4/bin/cmake/linux/x64/share/cmake-3.27/Modules/Compiler/CMakeCommonCompilerMacros.cmake /opt/clion-2023.3.4/bin/cmake/linux/x64/share/cmake-3.27/Modules/Compiler/GNU-C.cmake /opt/clion-2023.3.4/bin/cmake/linux/x64/share/cmake-3.27/Modules/Compiler/GNU.cmake /opt/clion-2023.3.4/bin/cmake/linux/x64/share/cmake-3.27/Modules/Platform/Linux-GNU-C.cmake /opt/clion-2023.3.4/bin/cmake/linux/x64/share/cmake-3.27/Modules/Platform/Linux-GNU.cmake /opt/clion-2023.3.4/bin/cmake/linux/x64/share/cmake-3.27/Modules/Platform/Linux-Initialize.cmake /opt/clion-2023.3.4/bin/cmake/linux/x64/share/cmake-3.27/Modules/Platform/Linux.cmake /opt/clion-2023.3.4/bin/cmake/linux/x64/share/cmake-3.27/Modules/Platform/UnixPaths.cmake CMakeCache.txt CMakeFiles/3.27.8/CMakeCCompiler.cmake CMakeFiles/3.27.8/CMakeSystem.cmake
   pool = console
 
 
 #############################################
 # A missing CMake input file is not an error.
 
-build /home/cristian/Documents/sdl/space-crusher/CMakeLists.txt /opt/clion-2023.3.4/bin/cmake/linux/x64/share/cmake-3.27/Modules/CMakeCInformation.cmake /opt/clion-2023.3.4/bin/cmake/linux/x64/share/cmake-3.27/Modules/CMakeCommonLanguageInclude.cmake /opt/clion-2023.3.4/bin/cmake/linux/x64/share/cmake-3.27/Modules/CMakeFindDependencyMacro.cmake /opt/clion-2023.3.4/bin/cmake/linux/x64/share/cmake-3.27/Modules/CMakeGenericSystem.cmake /opt/clion-2023.3.4/bin/cmake/linux/x64/share/cmake-3.27/Modules/CMakeInitializeConfigs.cmake /opt/clion-2023.3.4/bin/cmake/linux/x64/share/cmake-3.27/Modules/CMakeLanguageInformation.cmake /opt/clion-2023.3.4/bin/cmake/linux/x64/share/cmake-3.27/Modules/CMakeSystemSpecificInformation.cmake /opt/clion-2023.3.4/bin/cmake/linux/x64/share/cmake-3.27/Modules/CMakeSystemSpecificInitialize.cmake /opt/clion-2023.3.4/bin/cmake/linux/x64/share/cmake-3.27/Modules/Compiler/CMakeCommonCompilerMacros.cmake /opt/clion-2023.3.4/bin/cmake/linux/x64/share/cmake-3.27/Modules/Compiler/GNU-C.cmake /opt/clion-2023.3.4/bin/cmake/linux/x64/share/cmake-3.27/Modules/Compiler/GNU.cmake /opt/clion-2023.3.4/bin/cmake/linux/x64/share/cmake-3.27/Modules/FeatureSummary.cmake /opt/clion-2023.3.4/bin/cmake/linux/x64/share/cmake-3.27/Modules/Platform/Linux-GNU-C.cmake /opt/clion-2023.3.4/bin/cmake/linux/x64/share/cmake-3.27/Modules/Platform/Linux-GNU.cmake /opt/clion-2023.3.4/bin/cmake/linux/x64/share/cmake-3.27/Modules/Platform/Linux-Initialize.cmake /opt/clion-2023.3.4/bin/cmake/linux/x64/share/cmake-3.27/Modules/Platform/Linux.cmake /opt/clion-2023.3.4/bin/cmake/linux/x64/share/cmake-3.27/Modules/Platform/UnixPaths.cmake /usr/lib/x86_64-linux-gnu/cmake/SDL2/sdl2-config-version.cmake /usr/lib/x86_64-linux-gnu/cmake/SDL2/sdl2-config.cmake /usr/lib/x86_64-linux-gnu/cmake/SDL2_image/sdl2_image-config-version.cmake /usr/lib/x86_64-linux-gnu/cmake/SDL2_image/sdl2_image-config.cmake CMakeCache.txt CMakeFiles/3.27.8/CMakeCCompiler.cmake CMakeFiles/3.27.8/CMakeSystem.cmake: phony
+build /home/cristian/Documents/sdl/untitled/CMakeLists.txt /opt/clion-2023.3.4/bin/cmake/linux/x64/share/cmake-3.27/Modules/CMakeCInformation.cmake /opt/clion-2023.3.4/bin/cmake/linux/x64/share/cmake-3.27/Modules/CMakeCommonLanguageInclude.cmake /opt/clion-2023.3.4/bin/cmake/linux/x64/share/cmake-3.27/Modules/CMakeGenericSystem.cmake /opt/clion-2023.3.4/bin/cmake/linux/x64/share/cmake-3.27/Modules/CMakeInitializeConfigs.cmake /opt/clion-2023.3.4/bin/cmake/linux/x64/share/cmake-3.27/Modules/CMakeLanguageInformation.cmake /opt/clion-2023.3.4/bin/cmake/linux/x64/share/cmake-3.27/Modules/CMakeSystemSpecificInformation.cmake /opt/clion-2023.3.4/bin/cmake/linux/x64/share/cmake-3.27/Modules/CMakeSystemSpecificInitialize.cmake /opt/clion-2023.3.4/bin/cmake/linux/x64/share/cmake-3.27/Modules/Compiler/CMakeCommonCompilerMacros.cmake /opt/clion-2023.3.4/bin/cmake/linux/x64/share/cmake-3.27/Modules/Compiler/GNU-C.cmake /opt/clion-2023.3.4/bin/cmake/linux/x64/share/cmake-3.27/Modules/Compiler/GNU.cmake /opt/clion-2023.3.4/bin/cmake/linux/x64/share/cmake-3.27/Modules/Platform/Linux-GNU-C.cmake /opt/clion-2023.3.4/bin/cmake/linux/x64/share/cmake-3.27/Modules/Platform/Linux-GNU.cmake /opt/clion-2023.3.4/bin/cmake/linux/x64/share/cmake-3.27/Modules/Platform/Linux-Initialize.cmake /opt/clion-2023.3.4/bin/cmake/linux/x64/share/cmake-3.27/Modules/Platform/Linux.cmake /opt/clion-2023.3.4/bin/cmake/linux/x64/share/cmake-3.27/Modules/Platform/UnixPaths.cmake CMakeCache.txt CMakeFiles/3.27.8/CMakeCCompiler.cmake CMakeFiles/3.27.8/CMakeSystem.cmake: phony
 
 
 #############################################

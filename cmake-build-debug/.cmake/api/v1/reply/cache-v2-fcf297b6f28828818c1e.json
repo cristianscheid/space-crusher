@@ -55,7 +55,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/home/cristian/Documents/sdl/space-crusher/cmake-build-debug"
+			"value" : "/home/cristian/Documents/sdl/untitled/cmake-build-debug"
 		},
 		{
 			"name" : "CMAKE_CACHE_MAJOR_VERSION",
@@ -415,7 +415,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/home/cristian/Documents/sdl/space-crusher/cmake-build-debug/CMakeFiles/pkgRedirects"
+			"value" : "/home/cristian/Documents/sdl/untitled/cmake-build-debug/CMakeFiles/pkgRedirects"
 		},
 		{
 			"name" : "CMAKE_GENERATOR",
@@ -475,7 +475,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/home/cristian/Documents/sdl/space-crusher"
+			"value" : "/home/cristian/Documents/sdl/untitled"
 		},
 		{
 			"name" : "CMAKE_INSTALL_PREFIX",
@@ -715,7 +715,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "space_crusher"
+			"value" : "untitled"
 		},
 		{
 			"name" : "CMAKE_RANLIB",
@@ -1014,54 +1014,6 @@
 			"value" : "FALSE"
 		},
 		{
-			"name" : "SDL2IMAGE_DIR",
-			"properties" : 
-			[
-				{
-					"name" : "HELPSTRING",
-					"value" : "The directory containing a CMake configuration file for SDL2IMAGE."
-				}
-			],
-			"type" : "PATH",
-			"value" : "SDL2IMAGE_DIR-NOTFOUND"
-		},
-		{
-			"name" : "SDL2_DIR",
-			"properties" : 
-			[
-				{
-					"name" : "HELPSTRING",
-					"value" : "The directory containing a CMake configuration file for SDL2."
-				}
-			],
-			"type" : "PATH",
-			"value" : "/usr/lib/x86_64-linux-gnu/cmake/SDL2"
-		},
-		{
-			"name" : "SDL2_IMAGE_DIR",
-			"properties" : 
-			[
-				{
-					"name" : "HELPSTRING",
-					"value" : "The directory containing a CMake configuration file for SDL2_IMAGE."
-				}
-			],
-			"type" : "PATH",
-			"value" : "/usr/lib/x86_64-linux-gnu/cmake/SDL2_image"
-		},
-		{
-			"name" : "SDL2_image_DIR",
-			"properties" : 
-			[
-				{
-					"name" : "HELPSTRING",
-					"value" : "The directory containing a CMake configuration file for SDL2_image."
-				}
-			],
-			"type" : "PATH",
-			"value" : "/usr/lib/x86_64-linux-gnu/cmake/SDL2_image"
-		},
-		{
 			"name" : "_CMAKE_LINKER_PUSHPOP_STATE_SUPPORTED",
 			"properties" : 
 			[
@@ -1074,7 +1026,7 @@
 			"value" : "TRUE"
 		},
 		{
-			"name" : "space_crusher_BINARY_DIR",
+			"name" : "untitled_BINARY_DIR",
 			"properties" : 
 			[
 				{
@@ -1083,10 +1035,10 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/home/cristian/Documents/sdl/space-crusher/cmake-build-debug"
+			"value" : "/home/cristian/Documents/sdl/untitled/cmake-build-debug"
 		},
 		{
-			"name" : "space_crusher_IS_TOP_LEVEL",
+			"name" : "untitled_IS_TOP_LEVEL",
 			"properties" : 
 			[
 				{
@@ -1098,7 +1050,7 @@
 			"value" : "ON"
 		},
 		{
-			"name" : "space_crusher_SOURCE_DIR",
+			"name" : "untitled_SOURCE_DIR",
 			"properties" : 
 			[
 				{
@@ -1107,7 +1059,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/home/cristian/Documents/sdl/space-crusher"
+			"value" : "/home/cristian/Documents/sdl/untitled"
 		}
 	],
 	"kind" : "cache",
