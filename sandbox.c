@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include <SDL2/SDL.h>
 
+bool first_call = true;
+
 void sandbox_init(GameObjects *go, Textures *t) {
     // Background
     int background_width, background_height;
@@ -23,6 +25,7 @@ void sandbox_init(GameObjects *go, Textures *t) {
     go->player.y = 500;
     go->player.vel_x = 300;
     go->player.vel_y = 300;
+    go->player.health = 5;
 
     // Enemies
     for (int i = 0; i < sizeof(go->enemies) / sizeof(go->enemies[0]); i++) {
@@ -79,7 +82,13 @@ void sandbox_init(GameObjects *go, Textures *t) {
     }
 }
 
-void sandbox_move(GameObjects *go, Textures *t, GameControls *gc) {
+void sandbox_update(GameObjects *go, Textures *t, GameControls *gc) {
+
+    if (first_call) {
+        sandbox_init(go, t);
+        first_call = false;
+    }
+
     // Move Background
     for (int i = 0; i < sizeof(go->background) / sizeof(go->background[0]); i++) {
         bool j = !i;

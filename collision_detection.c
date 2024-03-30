@@ -47,10 +47,9 @@ void detect_collision(GameObjects *go, GameControls *gc) {
             && go->enemy_lasers[i].rect.x < go->player.rect.x + go->player.rect.w
             && go->enemy_lasers[i].rect.y + go->enemy_lasers[i].rect.h > go->player.rect.y
             && go->enemy_lasers[i].rect.y < go->player.rect.y + go->player.rect.h) {
+            go->player.health --;
             // Reset laser
             go->enemy_lasers[i].is_visible = false;
-            // Reset player
-            go->player.x = 0;
         }
     }
 

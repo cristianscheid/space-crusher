@@ -1,9 +1,9 @@
 #ifndef SANDBOX_H
 #define SANDBOX_H
 
-#include "main.h"
+#include "setup.h"
 
 void sandbox_init(GameObjects *go, Textures *t);
-void sandbox_move(GameObjects *go, Textures *t, GameControls *gt);
+void sandbox_update(GameObjects *go, Textures *t, GameControls *gc);
 
 #endif

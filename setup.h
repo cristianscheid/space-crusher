@@ -24,8 +24,9 @@ typedef struct {
     float y;
     float vel_x;
     float vel_y;
-    float display_time;
+    int health;
     bool is_visible;
+    float display_time;
 } GameObject;
 
 typedef struct {

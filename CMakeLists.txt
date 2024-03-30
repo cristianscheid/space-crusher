@@ -11,7 +11,8 @@ add_executable(${PROJECT_NAME} main.c
         update.c
         collision_detection.c
         render.c
-        sandbox.c)
+        sandbox.c
+        level_1.c)
 
 # Very Important - DONT FORGET!
 # in Run/debug Configurations

@@ -98,6 +98,13 @@ build CMakeFiles/untitled.dir/sandbox.c.o: C_COMPILER__untitled_unscanned_Debug 
   OBJECT_DIR = CMakeFiles/untitled.dir
   OBJECT_FILE_DIR = CMakeFiles/untitled.dir
 
+build CMakeFiles/untitled.dir/level_1.c.o: C_COMPILER__untitled_unscanned_Debug /home/cristian/Documents/sdl/untitled/level_1.c || cmake_object_order_depends_target_untitled
+  DEP_FILE = CMakeFiles/untitled.dir/level_1.c.o.d
+  FLAGS = -g -std=gnu11 -fdiagnostics-color=always
+  INCLUDES = -I/usr/include/SDL2
+  OBJECT_DIR = CMakeFiles/untitled.dir
+  OBJECT_FILE_DIR = CMakeFiles/untitled.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target untitled
@@ -106,7 +113,7 @@ build CMakeFiles/untitled.dir/sandbox.c.o: C_COMPILER__untitled_unscanned_Debug 
 #############################################
 # Link the executable untitled
 
-build untitled: C_EXECUTABLE_LINKER__untitled_Debug CMakeFiles/untitled.dir/main.c.o CMakeFiles/untitled.dir/setup.c.o CMakeFiles/untitled.dir/input_handler.c.o CMakeFiles/untitled.dir/update.c.o CMakeFiles/untitled.dir/collision_detection.c.o CMakeFiles/untitled.dir/render.c.o CMakeFiles/untitled.dir/sandbox.c.o | /usr/lib/x86_64-linux-gnu/libSDL2.so /usr/lib/x86_64-linux-gnu/libSDL2_image.so
+build untitled: C_EXECUTABLE_LINKER__untitled_Debug CMakeFiles/untitled.dir/main.c.o CMakeFiles/untitled.dir/setup.c.o CMakeFiles/untitled.dir/input_handler.c.o CMakeFiles/untitled.dir/update.c.o CMakeFiles/untitled.dir/collision_detection.c.o CMakeFiles/untitled.dir/render.c.o CMakeFiles/untitled.dir/sandbox.c.o CMakeFiles/untitled.dir/level_1.c.o | /usr/lib/x86_64-linux-gnu/libSDL2.so /usr/lib/x86_64-linux-gnu/libSDL2_image.so
   FLAGS = -g
   LINK_LIBRARIES = /usr/lib/x86_64-linux-gnu/libSDL2.so  /usr/lib/x86_64-linux-gnu/libSDL2_image.so
   OBJECT_DIR = CMakeFiles/untitled.dir

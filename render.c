@@ -2,7 +2,7 @@
 
 void render(SDL_Renderer *renderer, GameObjects *game_objects) {
     // Clear the renderer
-    //SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
+    SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
     SDL_RenderClear(renderer);
     
     // Draw background
@@ -49,7 +49,19 @@ void render(SDL_Renderer *renderer, GameObjects *game_objects) {
             SDL_RenderCopy(renderer, game_objects->explosions[i].tex, NULL, &game_objects->explosions[i].rect);
         }
     }
-    
+
+    SDL_Rect rect;
+    rect.w = 25;
+    rect.h = 25;
+
+    // Draw player health bar
+    for (int i = 0; i < game_objects->player.health; i++) {
+        rect.x = WINDOW_WIDTH - 30;
+        rect.y = WINDOW_HEIGHT - 30 - (30 * i);
+        SDL_SetRenderDrawColor(renderer, 0, 100, 0, 255);
+        SDL_RenderFillRect(renderer, &rect);
+    }
+
     // Present the renderer
     SDL_RenderPresent(renderer);
 }
