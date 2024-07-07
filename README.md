@@ -23,4 +23,4 @@ Space Crusher is currently in development and is not yet complete. Future update
 
 ## Disclaimer
 
-This project is intended for educational and non-commercial use only. For any questions or contributions, please contact me on [LinkedIn](https://www.linkedin.com/in/cristian-scheid/).
+This project is intended for educational and non-commercial use only. For any questions, please contact me on [LinkedIn](https://www.linkedin.com/in/cristian-scheid/).
