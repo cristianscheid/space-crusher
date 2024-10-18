@@ -22,3 +22,7 @@ Space Crusher is currently in development and is a work-in-progress. Future upda
 ## Disclaimer
 
 This project is intended for educational and non-commercial use only. For any questions or further information, please contact me on [LinkedIn](https://www.linkedin.com/in/cristian-scheid/).
+
+## Instalation
+
+sudo apt install libsdl2-dev libsdl2-image-dev
