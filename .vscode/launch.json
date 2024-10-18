@@ -1,0 +1,60 @@
+{
+   "version": "0.2.0",
+   "configurations": [
+      {
+         "name": "Debug space-crusher",
+         "type": "cppdbg",
+         "request": "launch",
+         "program": "${workspaceFolder}/build/space-crusher",
+         "args": [],
+         "stopAtEntry": false,
+         "cwd": "${workspaceFolder}",
+         "environment": [],
+         "externalConsole": false,
+         "MIMode": "gdb",
+         "setupCommands": [
+            {
+               "description": "Enable pretty-printing for gdb",
+               "text": "-enable-pretty-printing",
+               "ignoreFailures": true
+            }
+         ],
+         "preLaunchTask": "build",
+         "miDebuggerPath": "/usr/bin/gdb",
+         "miDebuggerArgs": "",
+         "logging": {
+            "trace": true,
+            "traceResponse": true
+         },
+         "internalConsoleOptions": "openOnSessionStart"
+      },
+      {
+         "name": "Run space-crusher",
+         "type": "cppdbg",
+         "request": "launch",
+         "program": "${workspaceFolder}/build/space-crusher",
+         "args": [],
+         "stopAtEntry": false,
+         "cwd": "${workspaceFolder}",
+         "environment": [],
+         "externalConsole": false,
+         "MIMode": "gdb",
+         "setupCommands": [
+            {
+               "description": "Enable pretty-printing for gdb",
+               "text": "-enable-pretty-printing",
+               "ignoreFailures": true
+            }
+         ],
+         "preLaunchTask": "build",
+         "miDebuggerPath": "/usr/bin/gdb",
+         "miDebuggerArgs": "",
+         "logging": {
+            "trace": true,
+            "traceResponse": true
+         },
+         "internalConsoleOptions": "openOnSessionStart",
+         "noDebug": true
+      }
+   ]
+}
