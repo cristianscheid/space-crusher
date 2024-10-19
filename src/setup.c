@@ -40,9 +40,10 @@ SDL_Renderer *create_renderer(SDL_Window *window)
 
 Textures create_textures(SDL_Renderer *renderer)
 {
-
     SDL_Surface *background_sfc = IMG_Load("assets/background.png");
+
     SDL_Surface *player_sfc = IMG_Load("assets/player.png");
+
     SDL_Surface *enemy_sfcs[14];
     enemy_sfcs[0] = IMG_Load("assets/enemy-blue-01.png");
     enemy_sfcs[1] = IMG_Load("assets/enemy-blue-02.png");
@@ -58,33 +59,43 @@ Textures create_textures(SDL_Renderer *renderer)
     enemy_sfcs[11] = IMG_Load("assets/enemy-red-02.png");
     enemy_sfcs[12] = IMG_Load("assets/enemy-yellow-01.png");
     enemy_sfcs[13] = IMG_Load("assets/enemy-yellow-02.png");
+
     SDL_Surface *asteroid_sfcs[2];
     asteroid_sfcs[0] = IMG_Load("assets/asteroid-01.png");
     asteroid_sfcs[1] = IMG_Load("assets/asteroid-02.png");
+
     SDL_Surface *player_laser_sfc = IMG_Load("assets/laser-01.png");
+
     SDL_Surface *enemy_laser_sfc = IMG_Load("assets/laser-02.png");
+
     SDL_Surface *explosion_sfc = IMG_Load("assets/explosion.png");
 
     Textures textures = {0};
 
     textures.background_tex = SDL_CreateTextureFromSurface(renderer, background_sfc);
     SDL_FreeSurface(background_sfc);
+
     textures.player_tex = SDL_CreateTextureFromSurface(renderer, player_sfc);
     SDL_FreeSurface(player_sfc);
+
     for (int i = 0; i < sizeof(textures.enemy_texs) / sizeof(textures.enemy_texs[0]); i++)
     {
         textures.enemy_texs[i] = SDL_CreateTextureFromSurface(renderer, enemy_sfcs[i]);
         SDL_FreeSurface(enemy_sfcs[i]);
     }
+
     for (int i = 0; i < sizeof(textures.asteroid_texs) / sizeof(textures.asteroid_texs[0]); i++)
     {
         textures.asteroid_texs[i] = SDL_CreateTextureFromSurface(renderer, asteroid_sfcs[i]);
         SDL_FreeSurface(asteroid_sfcs[i]);
     }
+
     textures.player_laser_tex = SDL_CreateTextureFromSurface(renderer, player_laser_sfc);
     SDL_FreeSurface(player_laser_sfc);
+
     textures.enemy_laser_tex = SDL_CreateTextureFromSurface(renderer, enemy_laser_sfc);
     SDL_FreeSurface(enemy_laser_sfc);
+
     textures.explosion_tex = SDL_CreateTextureFromSurface(renderer, explosion_sfc);
     SDL_FreeSurface(explosion_sfc);
 
