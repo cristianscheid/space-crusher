@@ -2,38 +2,44 @@
 #include <stdio.h>
 #include <SDL2/SDL_image.h>
 
-bool initialize_sdl(void) {
-    if (SDL_Init(SDL_INIT_EVERYTHING) != 0) {
+bool initialize_sdl(void)
+{
+    if (SDL_Init(SDL_INIT_EVERYTHING) != 0)
+    {
         fprintf(stderr, "Error initializing SDL: %s\n", SDL_GetError());
         return false;
     }
     return true;
 }
 
-SDL_Window *create_window(void) {
+SDL_Window *create_window(void)
+{
     SDL_Window *window = SDL_CreateWindow(
-            "Space Crusher",
-            SDL_WINDOWPOS_CENTERED,
-            SDL_WINDOWPOS_CENTERED,
-            WINDOW_WIDTH,
-            WINDOW_HEIGHT,
-            0
-    );
-    if (!window) {
+        "Space Crusher",
+        SDL_WINDOWPOS_CENTERED,
+        SDL_WINDOWPOS_CENTERED,
+        WINDOW_WIDTH,
+        WINDOW_HEIGHT,
+        0);
+    if (!window)
+    {
         fprintf(stderr, "Error creating SDL Window: %s\n", SDL_GetError());
     }
     return window;
 }
 
-SDL_Renderer *create_renderer(SDL_Window *window) {
+SDL_Renderer *create_renderer(SDL_Window *window)
+{
     SDL_Renderer *renderer = SDL_CreateRenderer(window, -1, 0);
-    if (!renderer) {
+    if (!renderer)
+    {
         fprintf(stderr, "Error creating SDL Renderer: %s\n", SDL_GetError());
     }
     return renderer;
 }
 
-Textures create_textures(SDL_Renderer *renderer) {
+Textures create_textures(SDL_Renderer *renderer)
+{
 
     SDL_Surface *background_sfc = IMG_Load("assets/background.png");
     SDL_Surface *player_sfc = IMG_Load("assets/player.png");
@@ -65,11 +71,13 @@ Textures create_textures(SDL_Renderer *renderer) {
     SDL_FreeSurface(background_sfc);
     textures.player_tex = SDL_CreateTextureFromSurface(renderer, player_sfc);
     SDL_FreeSurface(player_sfc);
-    for (int i = 0; i < sizeof(textures.enemy_texs) / sizeof(textures.enemy_texs[0]); i++) {
+    for (int i = 0; i < sizeof(textures.enemy_texs) / sizeof(textures.enemy_texs[0]); i++)
+    {
         textures.enemy_texs[i] = SDL_CreateTextureFromSurface(renderer, enemy_sfcs[i]);
         SDL_FreeSurface(enemy_sfcs[i]);
     }
-    for (int i = 0; i < sizeof(textures.asteroid_texs) / sizeof(textures.asteroid_texs[0]); i++) {
+    for (int i = 0; i < sizeof(textures.asteroid_texs) / sizeof(textures.asteroid_texs[0]); i++)
+    {
         textures.asteroid_texs[i] = SDL_CreateTextureFromSurface(renderer, asteroid_sfcs[i]);
         SDL_FreeSurface(asteroid_sfcs[i]);
     }

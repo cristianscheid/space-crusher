@@ -7,7 +7,8 @@
 #define WINDOW_WIDTH 800
 #define WINDOW_HEIGHT 720
 
-typedef struct {
+typedef struct
+{
     SDL_Texture *background_tex;
     SDL_Texture *player_tex;
     SDL_Texture *player_laser_tex;
@@ -17,7 +18,8 @@ typedef struct {
     SDL_Texture *explosion_tex;
 } Textures;
 
-typedef struct {
+typedef struct
+{
     SDL_Rect rect;
     SDL_Texture *tex;
     float x;
@@ -29,7 +31,8 @@ typedef struct {
     float display_time;
 } GameObject;
 
-typedef struct {
+typedef struct
+{
     GameObject background[2];
     GameObject player;
     GameObject enemies[10];
@@ -40,7 +43,8 @@ typedef struct {
     bool game_is_running;
 } GameObjects;
 
-typedef struct {
+typedef struct
+{
     bool move_up;
     bool move_down;
     bool move_left;
