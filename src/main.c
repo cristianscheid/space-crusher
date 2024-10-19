@@ -28,21 +28,39 @@ int main(int argc, char *args[])
         return EXIT_FAILURE;
     }
 
-    Textures textures = create_textures(renderer);
+    Surfaces *surfaces = create_surfaces();
+    if (!surfaces)
+    {
+        SDL_DestroyRenderer(renderer);
+        SDL_DestroyWindow(window);
+        SDL_Quit();
+        return EXIT_FAILURE;
+    }
+
+    Textures *textures = create_textures(renderer, surfaces);
+    if (!textures)
+    {
+        SDL_DestroyRenderer(renderer);
+        SDL_DestroyWindow(window);
+        SDL_Quit();
+        return EXIT_FAILURE;
+    }
+
     GameObjects game_objects;
     GameControls game_controls = {0};
-
     game_controls.game_is_running = true;
 
     while (game_controls.game_is_running)
     {
         process_input(&game_controls);
-        update_game_objects(&game_objects, &textures, &game_controls);
+        update_game_objects(&game_objects, textures, &game_controls);
         detect_collision(&game_objects, &game_controls);
         render(renderer, &game_objects);
     }
 
-    // SDL cleanup (uncomment when destruction functions are ready)
-    // destroy_window(window, renderer);
-    // return EXIT_SUCCESS;
+    destroy_textures(textures);
+    SDL_DestroyRenderer(renderer);
+    SDL_DestroyWindow(window);
+    SDL_Quit();
+    return EXIT_SUCCESS;
 }

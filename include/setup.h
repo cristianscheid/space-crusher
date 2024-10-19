@@ -9,12 +9,23 @@
 
 typedef struct
 {
+    SDL_Surface *background_sfc;
+    SDL_Surface *player_sfc;
+    SDL_Surface *enemy_sfcs[14];
+    SDL_Surface *asteroid_sfcs[2];
+    SDL_Surface *player_laser_sfc;
+    SDL_Surface *enemy_laser_sfc;
+    SDL_Surface *explosion_sfc;
+} Surfaces;
+
+typedef struct
+{
     SDL_Texture *background_tex;
     SDL_Texture *player_tex;
-    SDL_Texture *player_laser_tex;
-    SDL_Texture *enemy_laser_tex;
     SDL_Texture *enemy_texs[14];
     SDL_Texture *asteroid_texs[2];
+    SDL_Texture *player_laser_tex;
+    SDL_Texture *enemy_laser_tex;
     SDL_Texture *explosion_tex;
 } Textures;
 
@@ -64,6 +75,9 @@ typedef struct
 bool initialize_sdl(void);
 SDL_Window *create_window(void);
 SDL_Renderer *create_renderer(SDL_Window *window);
-Textures create_textures(SDL_Renderer *renderer);
+Surfaces *create_surfaces();
+Textures *create_textures(SDL_Renderer *renderer, Surfaces *surfaces);
+void free_surfaces(Surfaces *surfaces);
+void destroy_textures(Textures *textures);
 
 #endif

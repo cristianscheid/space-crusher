@@ -38,66 +38,94 @@ SDL_Renderer *create_renderer(SDL_Window *window)
     return renderer;
 }
 
-Textures create_textures(SDL_Renderer *renderer)
+Surfaces *create_surfaces()
 {
-    SDL_Surface *background_sfc = IMG_Load("assets/background.png");
+    Surfaces *surfaces = malloc(sizeof(Surfaces));
+    if (!surfaces)
+        return NULL;
 
-    SDL_Surface *player_sfc = IMG_Load("assets/player.png");
+    surfaces->background_sfc = IMG_Load("assets/background.png");
+    surfaces->player_sfc = IMG_Load("assets/player.png");
+    surfaces->enemy_sfcs[0] = IMG_Load("assets/enemy-blue-01.png");
+    surfaces->enemy_sfcs[1] = IMG_Load("assets/enemy-blue-02.png");
+    surfaces->enemy_sfcs[2] = IMG_Load("assets/enemy-brown-01.png");
+    surfaces->enemy_sfcs[3] = IMG_Load("assets/enemy-brown-02.png");
+    surfaces->enemy_sfcs[4] = IMG_Load("assets/enemy-green-01.png");
+    surfaces->enemy_sfcs[5] = IMG_Load("assets/enemy-green-02.png");
+    surfaces->enemy_sfcs[6] = IMG_Load("assets/enemy-orange-01.png");
+    surfaces->enemy_sfcs[7] = IMG_Load("assets/enemy-orange-02.png");
+    surfaces->enemy_sfcs[8] = IMG_Load("assets/enemy-purple-01.png");
+    surfaces->enemy_sfcs[9] = IMG_Load("assets/enemy-purple-02.png");
+    surfaces->enemy_sfcs[10] = IMG_Load("assets/enemy-red-01.png");
+    surfaces->enemy_sfcs[11] = IMG_Load("assets/enemy-red-02.png");
+    surfaces->enemy_sfcs[12] = IMG_Load("assets/enemy-yellow-01.png");
+    surfaces->enemy_sfcs[13] = IMG_Load("assets/enemy-yellow-02.png");
+    surfaces->asteroid_sfcs[0] = IMG_Load("assets/asteroid-01.png");
+    surfaces->asteroid_sfcs[1] = IMG_Load("assets/asteroid-02.png");
+    surfaces->player_laser_sfc = IMG_Load("assets/laser-01.png");
+    surfaces->enemy_laser_sfc = IMG_Load("assets/laser-02.png");
+    surfaces->explosion_sfc = IMG_Load("assets/explosion.png");
 
-    SDL_Surface *enemy_sfcs[14];
-    enemy_sfcs[0] = IMG_Load("assets/enemy-blue-01.png");
-    enemy_sfcs[1] = IMG_Load("assets/enemy-blue-02.png");
-    enemy_sfcs[2] = IMG_Load("assets/enemy-brown-01.png");
-    enemy_sfcs[3] = IMG_Load("assets/enemy-brown-02.png");
-    enemy_sfcs[4] = IMG_Load("assets/enemy-green-01.png");
-    enemy_sfcs[5] = IMG_Load("assets/enemy-green-02.png");
-    enemy_sfcs[6] = IMG_Load("assets/enemy-orange-01.png");
-    enemy_sfcs[7] = IMG_Load("assets/enemy-orange-02.png");
-    enemy_sfcs[8] = IMG_Load("assets/enemy-purple-01.png");
-    enemy_sfcs[9] = IMG_Load("assets/enemy-purple-02.png");
-    enemy_sfcs[10] = IMG_Load("assets/enemy-red-01.png");
-    enemy_sfcs[11] = IMG_Load("assets/enemy-red-02.png");
-    enemy_sfcs[12] = IMG_Load("assets/enemy-yellow-01.png");
-    enemy_sfcs[13] = IMG_Load("assets/enemy-yellow-02.png");
+    return surfaces;
+}
 
-    SDL_Surface *asteroid_sfcs[2];
-    asteroid_sfcs[0] = IMG_Load("assets/asteroid-01.png");
-    asteroid_sfcs[1] = IMG_Load("assets/asteroid-02.png");
+Textures *create_textures(SDL_Renderer *renderer, Surfaces *surfaces)
+{
+    Textures *textures = malloc(sizeof(Textures));
+    if (!textures)
+        return NULL;
 
-    SDL_Surface *player_laser_sfc = IMG_Load("assets/laser-01.png");
-
-    SDL_Surface *enemy_laser_sfc = IMG_Load("assets/laser-02.png");
-
-    SDL_Surface *explosion_sfc = IMG_Load("assets/explosion.png");
-
-    Textures textures = {0};
-
-    textures.background_tex = SDL_CreateTextureFromSurface(renderer, background_sfc);
-    SDL_FreeSurface(background_sfc);
-
-    textures.player_tex = SDL_CreateTextureFromSurface(renderer, player_sfc);
-    SDL_FreeSurface(player_sfc);
-
-    for (int i = 0; i < sizeof(textures.enemy_texs) / sizeof(textures.enemy_texs[0]); i++)
+    textures->background_tex = SDL_CreateTextureFromSurface(renderer, surfaces->background_sfc);
+    textures->player_tex = SDL_CreateTextureFromSurface(renderer, surfaces->player_sfc);
+    for (int i = 0; i < 14; i++)
     {
-        textures.enemy_texs[i] = SDL_CreateTextureFromSurface(renderer, enemy_sfcs[i]);
-        SDL_FreeSurface(enemy_sfcs[i]);
+        textures->enemy_texs[i] = SDL_CreateTextureFromSurface(renderer, surfaces->enemy_sfcs[i]);
     }
-
-    for (int i = 0; i < sizeof(textures.asteroid_texs) / sizeof(textures.asteroid_texs[0]); i++)
+    for (int i = 0; i < 2; i++)
     {
-        textures.asteroid_texs[i] = SDL_CreateTextureFromSurface(renderer, asteroid_sfcs[i]);
-        SDL_FreeSurface(asteroid_sfcs[i]);
+        textures->asteroid_texs[i] = SDL_CreateTextureFromSurface(renderer, surfaces->asteroid_sfcs[i]);
     }
+    textures->player_laser_tex = SDL_CreateTextureFromSurface(renderer, surfaces->player_laser_sfc);
+    textures->enemy_laser_tex = SDL_CreateTextureFromSurface(renderer, surfaces->enemy_laser_sfc);
+    textures->explosion_tex = SDL_CreateTextureFromSurface(renderer, surfaces->explosion_sfc);
 
-    textures.player_laser_tex = SDL_CreateTextureFromSurface(renderer, player_laser_sfc);
-    SDL_FreeSurface(player_laser_sfc);
-
-    textures.enemy_laser_tex = SDL_CreateTextureFromSurface(renderer, enemy_laser_sfc);
-    SDL_FreeSurface(enemy_laser_sfc);
-
-    textures.explosion_tex = SDL_CreateTextureFromSurface(renderer, explosion_sfc);
-    SDL_FreeSurface(explosion_sfc);
+    free_surfaces(surfaces);
 
     return textures;
+}
+
+void free_surfaces(Surfaces *surfaces)
+{
+    SDL_FreeSurface(surfaces->background_sfc);
+    SDL_FreeSurface(surfaces->player_sfc);
+    for (int i = 0; i < 14; i++)
+    {
+        SDL_FreeSurface(surfaces->enemy_sfcs[i]);
+    }
+    for (int i = 0; i < 2; i++)
+    {
+        SDL_FreeSurface(surfaces->asteroid_sfcs[i]);
+    }
+    SDL_FreeSurface(surfaces->player_laser_sfc);
+    SDL_FreeSurface(surfaces->enemy_laser_sfc);
+    SDL_FreeSurface(surfaces->explosion_sfc);
+    free(surfaces);
+}
+
+void destroy_textures(Textures *textures)
+{
+    SDL_DestroyTexture(textures->background_tex);
+    SDL_DestroyTexture(textures->player_tex);
+    for (int i = 0; i < 14; i++)
+    {
+        SDL_DestroyTexture(textures->enemy_texs[i]);
+    }
+    for (int i = 0; i < 2; i++)
+    {
+        SDL_DestroyTexture(textures->asteroid_texs[i]);
+    }
+    SDL_DestroyTexture(textures->player_laser_tex);
+    SDL_DestroyTexture(textures->enemy_laser_tex);
+    SDL_DestroyTexture(textures->explosion_tex);
+    free(textures);
 }
