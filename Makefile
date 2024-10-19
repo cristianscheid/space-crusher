@@ -1,27 +1,37 @@
 # Compiler and flags
 CC = gcc
-CFLAGS = -g -Wall -Iinclude
+CFLAGS = -Wall -I$(INCDIR) -g
 LDFLAGS = -lSDL2 -lSDL2_image
 
-# Source files and object files
+# Source directories
 SRCDIR = src
-INCDIR = include
 OBJDIR = build
+INCDIR = include
+
+# Source and object files
 SRCS = $(wildcard $(SRCDIR)/*.c)
 OBJS = $(patsubst $(SRCDIR)/%.c, $(OBJDIR)/%.o, $(SRCS))
 
 # Executable name
 TARGET = $(OBJDIR)/space-crusher
 
-# Default rule
+# Default rule to build the project
 $(TARGET): $(OBJS)
-	$(CC) -o $(TARGET) $(OBJS) $(LDFLAGS)
+	$(CC) $(CFLAGS) -o $(TARGET) $(OBJS) $(LDFLAGS)
 
 # Rule to compile .c files to .o files
 $(OBJDIR)/%.o: $(SRCDIR)/%.c
 	@mkdir -p $(OBJDIR)
-	$(CC) -c $(CFLAGS) $< -o $@
+	$(CC) $(CFLAGS) -c $< -o $@
 
 # Clean up object files and binary
 clean:
 	rm -rf $(OBJDIR)
+
+# Debug mode
+debug: CFLAGS += -g
+debug: $(TARGET)
+
+# Release mode with optimizations
+release: CFLAGS += -O2
+release: clean $(TARGET)
