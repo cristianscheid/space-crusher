@@ -1,10 +1,11 @@
-#include <stdio.h>
 #include <stdlib.h>
-#include <time.h>
 #include <stdbool.h>
 #include <SDL2/SDL.h>
-#include <SDL2/SDL_image.h>
-#include "main.h"
+#include "setup.h"
+#include "input_handler.h"
+#include "update.h"
+#include "render.h"
+#include "collision_detection.h"
 
 int main(int argc, char *args[])
 {

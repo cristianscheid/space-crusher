@@ -1,6 +1,10 @@
 #include "update.h"
+#include <stdio.h>
+#include <SDL2/SDL.h>
+#include "sandbox.h"
 
-void update_game_objects(GameObjects *game_objects, Textures *textures, GameControls *game_controls) {
+void update_game_objects(GameObjects *game_objects, Textures *textures, GameControls *game_controls)
+{
 
     // Get delta_time factor converted to seconds to be used to update objects
     game_controls->delta_time = (SDL_GetTicks() - game_controls->last_frame_time) / 1000.0;
