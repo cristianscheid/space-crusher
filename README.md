@@ -32,48 +32,48 @@ To get started with this project, follow the steps below:
 
    - Debian/Ubuntu:
 
-    ```
-    sudo apt install gcc make libsdl2-dev libsdl2-image-dev
-    ```
+     ```
+     sudo apt install gcc make libsdl2-dev libsdl2-image-dev
+     ```
 
    - Fedora/RHEL/CentOS:
 
-    ```
-    sudo dnf install gcc make SDL2-devel SDL2_image-devel
-    ```
+     ```
+     sudo dnf install gcc make SDL2-devel SDL2_image-devel
+     ```
 
    - OpenSUSE:
 
-    ```
-    sudo zypper install gcc make SDL2-devel SDL2_image-devel
-    ```
+     ```
+     sudo zypper install gcc make SDL2-devel SDL2_image-devel
+     ```
 
    - Arch Linux:
 
-    ```
-    sudo pacman -S gcc make sdl2 sdl2_image
-    ```
+     ```
+     sudo pacman -S gcc make sdl2 sdl2_image
+     ```
 
    - If your Linux distribution is not listed, you can find instructions for installing the SDL libraries from source [here](https://lazyfoo.net/tutorials/SDL/01_hello_SDL/linux/index.php).
 
 2. **Clone the repository**
 
-    ```
-    git clone https://github.com/cristianscheid/space-crusher.git
-    cd space-crusher
-    ```
+   ```
+   git clone https://github.com/cristianscheid/space-crusher.git
+   cd space-crusher
+   ```
 
 3. **Build the project**
 
-    ```
-    make
-    ```
+   ```
+   make
+   ```
 
 4. **Run the executable**
 
-    ```
-    ./build/space-crusher
-    ```
+   ```
+   ./build/space-crusher
+   ```
 
 ## Usage
 
