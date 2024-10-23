@@ -79,6 +79,20 @@ To get started with this project, follow the steps below:
 
 Once the game is running, you can control the spaceship using the arrow keys to move and the spacebar to shoot. To exit the game, simply close the window.
 
+### Running and Debugging with Visual Studio Code
+
+To run or debug the project with Visual Studio Code, follow these steps:
+
+- Open the `space-crusher` project folder in Visual Studio Code.
+
+- Install the **C/C++** extension by Microsoft from the Extensions tab (Ctrl+Shift+X).
+
+- Go to the Run and Debug tab (Ctrl+Shift+D).
+
+- Select "Debug Space Crusher" or "Run Space Crusher" from the dropdown at the top, next to the play icon.
+
+- Click the play icon to start. If you're debugging, remember to set breakpoints.
+
 ## Acknowledgment
 
 Special thanks to the asset creators at [OpenGameArt](https://opengameart.org) for their contributions to this project. Below is a list of the assets used:
