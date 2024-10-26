@@ -22,7 +22,7 @@ Space Crusher is a 2D space shooter game being developed from scratch using the 
 
 ## Visuals
 
-![sandbox](.github/sandbox.png)
+https://github.com/user-attachments/assets/3e2f366a-ae1f-41ac-88ca-ad17770a3e6a
 
 ## Installation
 
