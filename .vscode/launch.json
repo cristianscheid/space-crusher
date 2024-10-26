@@ -1,0 +1,32 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Debug Space Crusher",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${workspaceFolder}/build/space-crusher",
+      "cwd": "${workspaceFolder}",
+      "stopAtEntry": false,
+      "preLaunchTask": "build",
+      "MIMode": "gdb",
+      "miDebuggerPath": "/usr/bin/gdb",
+      "setupCommands": [
+        {
+          "text": "-enable-pretty-printing"
+        }
+      ]
+    },
+    {
+      "name": "Run Space Crusher",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${workspaceFolder}/build/space-crusher",
+      "cwd": "${workspaceFolder}",
+      "preLaunchTask": "build",
+      "MIMode": "gdb",
+      "miDebuggerPath": "/usr/bin/gdb",
+      "noDebug": true
+    }
+  ]
+}

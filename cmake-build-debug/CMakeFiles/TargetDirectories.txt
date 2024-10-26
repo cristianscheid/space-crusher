@@ -1,3 +1,0 @@
-/home/cristian/Documents/sdl/untitled/cmake-build-debug/CMakeFiles/untitled.dir
-/home/cristian/Documents/sdl/untitled/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/cristian/Documents/sdl/untitled/cmake-build-debug/CMakeFiles/rebuild_cache.dir
