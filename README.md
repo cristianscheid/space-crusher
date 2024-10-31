@@ -85,7 +85,7 @@ To run or debug the project with Visual Studio Code, follow these steps:
 
 - Open the `space-crusher` project folder in Visual Studio Code.
 
-- Install the **C/C++** extension by Microsoft from the Extensions tab (Ctrl+Shift+X).
+- Install the `C/C++` extension by Microsoft from the Extensions tab (Ctrl+Shift+X).
 
 - Go to the Run and Debug tab (Ctrl+Shift+D).
 
