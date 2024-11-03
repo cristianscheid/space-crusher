@@ -1,6 +1,6 @@
 # Compiler and flags
 CC = gcc
-CFLAGS = -Wall -g -Iinclude
+CFLAGS = -Wall -g -std=c11 -Iinclude
 LDFLAGS = -lSDL2 -lSDL2_image
 
 # Directories for source and object files
