@@ -47,13 +47,14 @@ int main(int argc, char *args[])
         return EXIT_FAILURE;
     }
 
+    SDL_Event event;
     GameObjects game_objects;
     GameControls game_controls = {0};
     game_controls.game_is_running = true;
 
     while (game_controls.game_is_running)
     {
-        process_input(&game_controls);
+        process_input(&event, &game_controls);
         update_game_objects(&game_objects, textures, &game_controls);
         detect_collision(&game_objects, &game_controls);
         render(renderer, &game_objects);

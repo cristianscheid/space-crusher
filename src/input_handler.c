@@ -1,16 +1,14 @@
 #include "input_handler.h"
 #include <stdbool.h>
-#include <SDL2/SDL.h>
 
-void process_input(GameControls *game_controls)
+void process_input(SDL_Event *event, GameControls *game_controls)
 {
-    SDL_Event event;
-    while (SDL_PollEvent(&event))
+    while (SDL_PollEvent(event))
     {
-        switch (event.type)
+        switch (event->type)
         {
         case SDL_KEYDOWN:
-            switch (event.key.keysym.sym)
+            switch (event->key.keysym.sym)
             {
             case SDLK_UP:
                 game_controls->move_up = true;
@@ -32,7 +30,7 @@ void process_input(GameControls *game_controls)
             }
             break;
         case SDL_KEYUP:
-            switch (event.key.keysym.sym)
+            switch (event->key.keysym.sym)
             {
             case SDLK_UP:
                 game_controls->move_up = false;
